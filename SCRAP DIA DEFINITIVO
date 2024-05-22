@@ -1,0 +1,74 @@
+from urllib.request import urlopen
+import csv
+import json
+
+def get_jsonparsed_data(url):
+    response = urlopen(url)
+    data = json.loads(response.read().decode())
+    return data
+
+url = ("https://www.dia.es/api/v1/pdp-insight/initial_analytics/207399")
+datosJson1 = get_jsonparsed_data(url)
+
+items = 228
+fichero = open('data_dia.csv', 'w')
+csv_graba = csv.writer(fichero)
+csv_graba.writerow(("Nombre","Categoria1","Categoria2","UM","Precio Unitario","Precio"))
+
+for i in datosJson1['menu_analytics']:
+    strNumero = i
+    
+    url = "https://www.dia.es/api/v1/search-back/search/reduced?q=" + strNumero + "&page=1"
+    datosJson = get_jsonparsed_data(url)
+    
+    for x in datosJson.get("search_items"):
+        datosArray = []
+        display_name                = x['display_name']
+        l1_category_description     = x['l1_category_description']
+        l2_category_description     = x['l2_category_description']
+        prices                      = x['prices']
+        datosArray.append(strNumero) 
+        datosArray.append(display_name) 
+        datosArray.append(l1_category_description) 
+        datosArray.append(l2_category_description) 
+        measure_unit                = prices['measure_unit']
+        price                       = prices['price']
+        price_per_unit              = prices['price_per_unit']
+        datosArray.append(measure_unit) 
+        datosArray.append(price_per_unit) 
+        datosArray.append(price) 
+        csv_graba.writerow(datosArray)
+
+for h in range(items):
+    if h < 10:
+        strConcat = "00"+str(h)
+    else:
+        if h < 100:
+            strConcat = "0"+str(h)
+        else:
+            strConcat = str(h)
+    strNumero = "L2"+strConcat
+
+    url = "https://www.dia.es/api/v1/search-back/search/reduced?q=" + strNumero + "&page=1"
+    datosJson = get_jsonparsed_data(url)
+
+    for x in datosJson.get("search_items"):
+        datosArray = []
+        display_name                = x['display_name']
+        l1_category_description     = x['l1_category_description']
+        l2_category_description     = x['l2_category_description']
+        prices                      = x['prices']
+        datosArray.append(strNumero) 
+        datosArray.append(display_name) 
+        datosArray.append(l1_category_description) 
+        datosArray.append(l2_category_description) 
+        measure_unit                = prices['measure_unit']
+        price                       = prices['price']
+        price_per_unit              = prices['price_per_unit']
+        datosArray.append(measure_unit) 
+        datosArray.append(price_per_unit) 
+        datosArray.append(price) 
+        csv_graba.writerow(datosArray)
+
+          
+fichero.close()
