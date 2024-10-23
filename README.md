@@ -62,11 +62,11 @@ metodología empleada en cada parte del proceso.
 
 A nivel general las fases establecidas son:
 
-![Fases del proyecto](URL_de_la_Imagen)
+![Fases del proyecto](FASES PLANTEADAS.png)
 
 # ESQUEMA EJECUCIÓN CÓDIGO
 
-![Fases del proyecto](URL_de_la_Imagen)
+![Esquema de ejecución del código](URL_de_la_Imagen)
 
 
 # CONCLUSIONES:
