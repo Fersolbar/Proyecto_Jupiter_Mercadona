@@ -66,7 +66,7 @@ A nivel general las fases establecidas son:
 
 # ESQUEMA EJECUCIÓN CÓDIGO
 
-![Esquema de ejecución del código](URL_de_la_Imagen)
+![Esquema de ejecución del código](https://github.com/Fersolbar/Proyecto_Jupiter_Mercadona/blob/main/ESQUEMA%20DE%20EJECUCION%20DE%20CODIGO.png)
 
 
 # CONCLUSIONES:
