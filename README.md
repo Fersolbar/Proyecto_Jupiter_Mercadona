@@ -62,7 +62,7 @@ metodología empleada en cada parte del proceso.
 
 A nivel general las fases establecidas son:
 
-![Fases del proyecto](FASES PLANTEADAS.png)
+![Fases del proyecto](https://github.com/Fersolbar/Proyecto_Jupiter_Mercadona/blob/main/FASES%20PLANTEADAS.png)
 
 # ESQUEMA EJECUCIÓN CÓDIGO
 
